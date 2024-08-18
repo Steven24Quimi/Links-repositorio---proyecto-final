@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compre su ticket con seguridad :D</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/Logotipo.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">SQPC</div>
+
+        <div class="title-container">
+            <h1>No Te Pierdas La Oportunidad de Viajar Seguro</h1>
+            <img src="img/viajar.png" alt="Logotipo de la empresa" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <section class="offer">
+            <p>Viaja Seguro: Tu portal confiable y gratuito para la compra de boletos de viaje.</p>
+        </section>
+
+        <section class="search-flights">
+            <h1>Vuelos</h1>
+            <div class="form-container">
+                <label for="opciones-input">Ciudades a Viajar:</label>
+                <input list="opciones" id="opciones-input" name="opciones">
+                <datalist id="opciones">
+                    <option value="Perú">
+                    <option value="Francia">
+                    <option value="España">
+                    <option value="Estados Unidos">
+                    <option value="Japón">
+                    <option value="Islandia">
+                    <option value="Argentina">
+                    <option value="Ecuador">
+                </datalist>
+                <button onclick="mostrarCiudades()">Aceptar</button>
+            </div>
+            <div class="result" id="resultado">
+                <p id="texto"></p>
+            </div>
+        </section>
+    </main>
+
+    <head>
+        <title>Lugares de Interés</title>
+        <style>
+            .location {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .location img {
+                width: 300px;
+                height: auto;
+            }
+
+            .descripcion {
+                font-size: 14px;
+                color: #555;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Select para escoger un país -->
+        <select id="opciones-input" onchange="mostrarCiudades()">
+            <option value="">Selecciona un país</option>
+            <option value="Perú">Perú</option>
+            <option value="Francia">Francia</option>
+            <option value="España">España</option>
+            <option value="Estados Unidos">Estados Unidos</option>
+            <option value="Japón">Japón</option>
+            <option value="Islandia">Islandia</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Ecuador">Ecuador</option>
+        </select>
+
+        <!-- Contenedor para mostrar los resultados -->
+        <div id="resultado"></div>
+
+        <script>
+            function mostrarCiudades() {
+                const paisSeleccionado = document.getElementById('opciones-input').value;
+                const contenido = document.getElementById('resultado');
+                contenido.innerHTML = ''; // Limpiar el contenido previo
+
+                let lugares;
+
+                switch (paisSeleccionado) {
+                    case 'Perú':
+                        lugares = [
+                            {
+                                nombre: 'Machu Pichu', imagen: 'img/Machu Pichu - Peru.jpg',
+                            },
+
+                            {
+                                nombre: "Cañon Colca", imagen: "img/Cañon Colca.jpg",
+                            },
+
+                            {
+                                nombre: "Reserva Nacional de Paracas", imagen: "img/Paracas.jpg",
+                            },
+
+                            {
+                                nombre: "Baños Termales de San Mateo", imagen: "img/Termales.jpg",
+                            },
+
+                            {
+                                nombre: "Islas Ballestas", imagen: "img/Islas Ballestas.jpg",
+                            },
+                        ];
+                        break;
+
+                    case 'Francia':
+                        lugares = [
+                            {
+                                nombre: 'Torre Eiffel', imagen: 'img/PARIS, TORRE.jpg',
+                            },
+                            {
+                                nombre: 'Museo Del Louvre', imagen: 'img/Museo.jpg',
+                            },
+                            {
+                                nombre: "Musee de Orsay", imagen: " img/Museo de Orsay.jpg",
+                            },
+                            {
+                                nombre: "Arco de Triunfo", imagen: "img/Arco de Triunfo.jpg",
+                            },
+                            {
+                                nombre: "Palacio Versalles", imagen: "img/Palacio Versalles.jpg",
+                            },
+                        ];
+                        break;
+
+                    case 'España':
+                        lugares = [
+                            {
+                                nombre: 'La Sagrada Familia', imagen: 'img/Sagrada Familia - España.jpg',
+                            },
+                            {
+                                nombre: 'Parque Güell', imagen: 'img/Parque Güell.jpg',
+                            },
+                            {
+                                nombre: 'La Mezquita de Córdoba', imagen: 'img/Mezquita de Córdoba.jpg',
+                            },
+                            {
+                                nombre: 'Catedral de Burgos', imagen: 'img/Catedral de Burgos.jpg',
+                            },
+                            {
+                                nombre: 'La Giralda', imagen: 'img/La Giralda.jpg',
+                            },
+                        ];
+                        break;
+
+                    case 'Estados Unidos':
+                        lugares = [
+                            {
+                                nombre: "San Francisco, California", imagen: "img/San Francisco, California.jpg",
+                            },
+                            {
+                                nombre: "Parque Nacional de Yosemite", imagen: "img/Parque Nacional de Yosemite.jpg",
+                            },
+                            {
+                                nombre: 'Estatua de la Libertad', imagen: 'img/Estatua de la Libertad.webp',
+                            },
+                            {
+                                nombre: "Parque nacional de los Everglades", imagen: "img/Parque nacional de los Everglades.jpg",
+                            },
+                            {
+                                nombre: 'Grand Canyon', imagen: 'img/Grand Canyon.jpg',
+                            },
+                            {
+                                nombre: 'Times Square', imagen: 'img/Times Square.jpg',
+                            },
+                        ];
+                        break;
+
+                    case 'Japón':
+                        lugares = [
+                            {
+                                nombre: 'Tokio', imagen: 'img/Tokio.webp',
+                            },
+                            {
+                                nombre: 'Monte Fuji', imagen: 'img/Monte Fuji.jpg',
+                            },
+                            {
+                                nombre: 'Templo Kinkaku-ji', imagen: 'img/Templo Kinkaku-ji.jpg',
+                            },
+                            {
+                                nombre: "Hakone", imagen: "img/Hakone.webp",
+                            },
+                            {
+                                nombre: "Kamakura", imagen: "img/Kamakura.jpg",
+                            },
+                            {
+                                nombre: "Osaka", imagen: "img/Osaka.jpg",
+                            },
+                        ];
+                        break;
+
+                    case 'Islandia':
+                        lugares = [
+                            {
+                                nombre: 'Laguna Azul', imagen: 'img/Laguna Azul-Islandia.jpg',
+                            },
+                            {
+                                nombre: 'Cascada Seljalandsfoss', imagen: 'img/Cascada.jpg',
+                            },
+
+                            {
+                                nombre: "Reykjavik", imagen: "img/Reykjavik.jpg",
+                            },
+
+                            {
+                                nombre: "Parque Nacional Thingvellir", imagen: "img/Parque Nacional Thingvellir.jpg",
+                            },
+                            {
+                                nombre: "Geysir", imagen: "img/Geysir.jpg",
+                            },
+                        ];
+                        break;
+
+                    case 'Argentina':
+                        lugares = [
+                            {
+                                nombre: 'Buenos Aires', imagen: 'img/Buenos Aire.jpg',
+                            },
+                            {
+                                nombre: 'Cataratas del Iguazú', imagen: 'img/Cataratas.webp',
+                            },
+                            {
+                                nombre: "Bariloche", imagen: "img/Bariloche.jpg",
+                            },
+
+                            {
+                                nombre: "Salta", imagen: "img/Salta.jpg",
+                            },
+
+                            {
+                                nombre: "calafate", imagen: "img/El Calafate.jpg",
+                            },
+                            {
+                                nombre: "ushuaia", imagen: "img/Ushuaia.jpg",
+                            },
+                        ];
+                        break;
+
+                    case 'Ecuador':
+                        lugares = [
+                            {
+                                nombre: 'Quito', imagen: 'img/Quito.jpg',
+                            },
+                            {
+                                nombre: 'Galápagos', imagen: 'img/Galapagos.jpg',
+                            },
+
+                            {
+                                nombre: "cuenca", imagen: "img/cuenca.jpg",
+                            },
+
+                            {
+                                nombre: "Baños de Agua Termales", imagen: "img/Baños de Agua Santa.jpg",
+                            },
+
+                            {
+                                nombre: "Parque Nacional Cotopaxi", imagen: "img/Parque Nacional Cotopax.jpg",
+                            },
+
+                        ];
+                        break;
+
+                    default:
+                        const texto = document.createElement('p');
+                        texto.textContent = 'No se encontró información para esta ciudad';
+                        contenido.appendChild(texto);
+                        return;
+                }
+
+                lugares.forEach(lugar => {
+                    const div = document.createElement('div');
+                    div.className = 'location';
+
+                    const lugarTexto = document.createElement('h3');
+                    lugarTexto.textContent = lugar.nombre;
+
+                    const lugarImagen = document.createElement('img');
+                    lugarImagen.src = lugar.imagen;
+                    lugarImagen.alt = lugar.nombre;
+
+                    const lugarDescripcion = document.createElement('p');
+                    lugarDescripcion.textContent = lugar.descripcion;
+                    lugarDescripcion.className = 'descripcion';
+
+                    div.appendChild(lugarTexto);
+                    div.appendChild(lugarImagen);
+                    div.appendChild(lugarDescripcion);
+                    contenido.appendChild(div);
+                });
+
+                contenido.style.display = 'block'; // Mostrar el resultado
+            }
+        </script>
+        <section class="search-flights">
+            <h1>Hospedaje</h1>
+                <datalist id="opciones">
+                    <option value="Perú">
+                    <option value="Francia">
+                    <option value="España">
+                    <option value="Estados Unidos">
+                    <option value="Japón">
+                    <option value="Islandia">
+                    <option value="Argentina">
+                    <option value="Ecuador">
+                </datalist>
+            </div>
+            <div class="result" id="resultado">
+                <p id="texto"></p>
+            </div>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Tabla con Líneas</title>
+            </head>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse; /* Elimina los espacios entre las celdas */
+                }
+                th, td {
+                    border: 2px solid #000; /* Borde negro de 2px */
+                    padding: 10px;
+                    text-align: left;
+                }
+                
+                    table {
+                        width: 100%;
+                        border-collapse: collapse; /* Elimina los espacios entre las celdas */
+                    }
+                    th, td {
+                        border: 2px solid #000; /* Borde negro de 2px */
+                        padding: 10px;
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #00FFFF; /* Color de fondo gris claro para los encabezados */
+                    }
+                    tr:nth-child(even) {
+                        background-color: #99b0da; /* Color de fondo alterno para las filas */
+                    }
+            </style>
+            <body>
+                <h2>PERÚ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Machu Pichu</th> 
+                            <th>Cañon Colca</th>
+                            <th>Reserva Nacional De Paracas</th>
+                            <th>Baños Termales De San Mateo</th>
+                            <th>Islas Ballestas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inkaterra Machu Picchu Pueblo Hotel, Sumaq Machu Picchu Hotel, El MaPi by Inkaterra</td>
+                            <td> Colca Lodge, Arequipa Colca Lodge, Kuntur Wassi</td>
+                            <td>Hotel Paracas, a Luxury Collection Resort, San Agustín Paracas y La Hacienda Bahia Paracas</td>
+                            <td>Hotel Las Termas de San Mateo, Hotel El Paraíso de San Mateo, Hotel El Castillo</td>
+                            <td>Hotel Paraca, Hotel El Mirage, San Agustin</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>FRANCIA</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Torre Eiffel</th> 
+                            <th>Museo Del Louvre</th>
+                            <th>Musee de Orsay</th>
+                            <th>Arco de Triunfo</th>
+                            <th>Palacio Versalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Shangri, Pullman Paris Tour Eiffel y Le Cinq Codet</td>
+                            <td>Le Meurice, Grand Hôtel du Palais Royal y Hôtel Regina Louvre</td>
+                            <td>Hotel d'Orsay, Hotel Pont Royal y Le Bellechasse Saint-Germain</td>
+                            <td>Hotel Raphael, Le Royal Monceau, Raffles Paris y Hôtel Vernet</td>
+                            <td>Hotel Paraca, Hotel El Mirage, San Agustin</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>ESPAÑA</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>La Sagrada Familia</th> 
+                            <th>Parque Güell</th>
+                            <th>La Mezquita de Córdoba</th>
+                            <th>Catedral de Burgos</th>
+                            <th>La Giralda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ayre Hotel Rosellón</td>
+                            <td>Hotel Casa Fuster</td>
+                            <td>Balcon de Córdoba</td>
+                            <td>Hotel NH Collection Palacio de Burgos</td>
+                            <td>Hotel Alfonso XIII </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </body>
+        </section>
+
+
+        <section class="promotions">
+            <h2>Promociones</h2>
+            <!-- Aquí irían las promociones, imágenes, etc. -->
+        </section>
+
+        <section class="offers">
+            <div class="offer">
+                <h2>Explora El Mundo Desde Tu Ciudad</h2>
+                <p>Busca en cientos de webs de viajes y compara precios.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024, Hecho por Steven Quimi. Esperamos que haya sido de su agrado.</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+
+
+</html>
